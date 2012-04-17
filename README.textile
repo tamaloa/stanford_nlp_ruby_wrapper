@@ -1,0 +1,35 @@
+h1. Stanford NLP Ruby Wrapper
+
+This is a _very_ thin wrapper around some basic commands which show how to use some of the excellent "stanford nlp libraries":http://nlp.stanford.edu/software/ inside a ruby project. This is done by using "Ruby Java Bridge (rjb)":http://rjb.rubyforge.org/. The tests give a first impression on what to expect from the included Part-of-speech tagger (postagger) and Named Entity Recognizer (NER).
+
+h2. Installation
+
+The gem is not published as a rubygem as it is insanely big (it contains the necessary java libraries and classifier/models in the bin directory) - sorry github.
+For a quick tryout you can include it in your ruby or rails project using bundler and adding
+
+<pre>
+gem 'stanford_nlp_ruby_wrapper', :git => 'git://github.com/tamaloa/stanford_nlp_ruby_wrapper'
+</pre>
+
+to your Gemfile.
+To really use a part of stanford nlp in your project you will want to include the libraries directly and write your own wrapper if needed at all.
+
+h2. Usage
+
+Using postagger:
+<pre>
+tagger = StanfordNlpRubyWrapper::PartOfSpeechTagger.new
+tagger.tag_sentence("Good afternoon Rajat Raina, how are you today?")
+=> "Good/JJ afternoon/NN Rajat/NNP Raina/NNP ,/, how/WRB are/VBP you/PRP today/NN ?/. "
+</pre>
+
+Using ner:
+<pre>
+ner = StanfordNlpRubyWrapper::NamedEntityRecognizer.new
+ner.classify("Good afternoon Rajat Raina, how are you today?")
+=> "Good afternoon <PERSON>Rajat Raina</PERSON>, how are you today?"
+</pre>
+
+h2. License
+
+As including the stanford nlp libraries for POS-tagging and NER this code is also licensed as GPL-2 (see LICENSE file). For Copyright and further information on stanford nlp see the included files in @bin/@ or the "stanford nlp website":http://nlp.stanford.edu/software/
