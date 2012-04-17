@@ -8,15 +8,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Tien Dung", "Michael Prilop"]
   s.email       = ["dungtn@gmail.com", "prilop@informatik.uni-leipzig.de"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{A very thin wrapper around stanford nlp libs to demonstrate how to use them in ruby}
+  s.description = %q{A very thin wrapper around stanford POS tagger and NER libs to demonstrate how to use them in ruby.}
   s.license     = %q{TODO: Check for stanford nlp licenses}
 
   s.rubyforge_project = "stanford_nlp_ruby_wrapper"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   s.add_dependency('rjb')
